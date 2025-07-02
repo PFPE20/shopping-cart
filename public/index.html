@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="/fav-ico.png">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-flex">
+            <h1>My first shopping cart</h1>
+            <div class="bag-btn">
+                <div class="bag-flex">
+                    <button id="shopping-bag">
+                        <span class="material-symbols-outlined">
+                            shopping_bag
+                        </span>
+                    </button>
+                    <div class="counter">
+                        <p id="count" style="user-select: none;"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="cart">
+                <div class="cart-flex">
+                    <div class="total">
+                        <h3>Cantidad de productos: <span id="item-counter"></span></h3>
+                        <h3>Subtotal: $<span id="subtotal"></span></h3>
+                        <h3>Impuesto: $<span id="taxes"></span></h3>
+                        <h3>Total: $<span id="total"></span></h3>
+                    </div>
+                    <div class="items">
+                        <!-- <div class="item">
+                            <div class="item-data">
+                                <h2 id="item-name">producto</h2>
+                                <h2>$ <span id="item-price">xx</span></h2>
+                            </div>
+                            <div class="item-counter">
+                                <p id="item-count">xx</p>
+                            </div>
+                            <div class="item-btn">
+                                <button>
+                                    <span class="material-symbols-outlined">
+                                        remove_shopping_cart
+                                    </span>
+                                </button>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="buy-button-container">
+                        <button id="buy-button">Comprar</button>
+                    </div>
+                    <div class="clear-items">
+                        <button id="clear-cart">Limpiar carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- <div class="product">
+            <h2 id="product-name">producto</h2>
+            <p id="product-price">xx</p>
+            <div class="button-container"><button id="add-to-cart"><span class="material-symbols-outlined">
+                    add_shopping_cart
+                </span></button></div>
+            
+        </div> -->
+
+    </div>
+
+    <div class="theme-toggle">
+        <button id="light">
+            <span class="material-symbols-outlined">
+                brightness_2
+            </span>
+        </button>
+    </div>
+
+    <div id="cookie-banner" class="cookie-banner">
+        <p>Utilizamos cookies para mejorar tu experiencia de navegación y para recopilar datos estadísticos sobre el tiempo que pasas en nuestra página. ¿Aceptas nuestras cookies?</p>
+        <div class="cookie-buttons">
+            <button id="accept-cookies" class="cookie-button accept">Aceptar</button>
+            <button id="decline-cookies" class="cookie-button decline">Rechazar</button>
+        </div>
+    </div>
+
+
+    <script src="/main.js"></script>
+</body>
+
+</html>

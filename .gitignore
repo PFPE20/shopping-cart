@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+
+# Operating system files
+.DS_Store
+
+# Request files
+*.http
+
+# Log files
+*.log
+npm-debug.log

@@ -1,0 +1,746 @@
+/* General Body Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #ffe7d4, #ffdab9); /* Soft, warm gradient background */
+    color: #4a2a1a; /* Dark brown for text */
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for theme change */
+}
+
+/* --- Dark Mode Styles --- */
+body.dark-mode {
+    /* Dark Mode Background - Use 'background' to override the gradient */
+    background: linear-gradient(to right, #2a2a2a, #1a1a1a); /* Dark gradient background */
+    color: #e0e0e0; /* Light grey text */
+}
+
+/* Header Styles */
+header {
+    background-color: #d18d4d; /* Muted orange */
+    color: #fff;
+    padding: 1.5rem 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1001;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    transition: color 0.3s ease;
+}
+
+/* Shopping Bag Button */
+.bag-btn {
+    position: relative;
+    z-index: 1200;
+}
+
+.bag-flex {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#shopping-bag {
+    background-color: #f7b731; /* Bright warm yellow */
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+#shopping-bag:hover {
+    background-color: #f4a200; /* Darker yellow on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#shopping-bag .material-symbols-outlined {
+    font-size: 2rem;
+}
+
+.counter {
+    background-color: #e55934; /* Vibrant orange-red */
+    color: #fff;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    position: absolute;
+    z-index: 2; /* Higher than #shopping-bag */
+    top: -8px;
+    right: -8px;
+    border: 2px solid #fff; /* White border for contrast */
+}
+
+/* Cart Modal Styles */
+.cart {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 350px;
+    height: 100%;
+    background-color: #fff8eb; /* Very light, warm cream */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    transition: right 0.4s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease; /* Add transition for theme change */
+    z-index: 1100;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.cart.active {
+    right: 0; /* Show cart */
+}
+
+.cart-flex {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.total {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #d18d4d; /* Dotted line with warm color */
+    color: #8b4513; /* Saddle brown for totals */
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.total h3 {
+    margin: 0.7rem 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.total h3 span {
+    font-weight: normal;
+    color: #e55934;
+    transition: color 0.3s ease;
+}
+
+.items {
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+}
+
+/* Individual Item in Cart (Dynamic) */
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f0e1; /* Slightly darker cream for items */
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item:hover {
+    transform: translateY(-2px);
+}
+
+.item-data h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #4a2a1a;
+    transition: color 0.3s ease;
+}
+
+.item-data span {
+    font-weight: bold;
+    color: #e55934;
+    transition: color 0.3s ease;
+}
+
+.item-counter p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #d18d4d;
+    transition: color 0.3s ease;
+}
+
+.item-btn button {
+    background-color: #e55934; /* Vibrant orange-red */
+    color: #fff;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.item-btn button:hover {
+    background-color: #c74828; /* Darker red on hover */
+}
+
+.item-btn .material-symbols-outlined {
+    font-size: 1.3rem;
+}
+
+/* Clear Cart Button */
+.clear-items {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px dashed #d18d4d;
+    transition: border-color 0.3s ease;
+}
+
+#clear-cart {
+    background-color: #f7b731; /* Bright warm yellow */
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#clear-cart:hover {
+    background-color: #f4a200; /* Darker yellow on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* New: Buy Button Container and Button */
+.buy-button-container {
+    text-align: center;
+    margin-top: 1.5rem; /* Add some space above the button */
+    padding-top: 1rem;
+    border-top: 1px dashed #d18d4d; /* Add a top border for separation */
+    transition: border-color 0.3s ease;
+}
+
+#buy-button {
+    background-color: #e55934; /* Vibrant orange-red for the buy button */
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 30px; /* Slightly more rounded */
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%; /* Make it wider */
+    max-width: 250px; /* Limit max width for larger screens */
+}
+
+#buy-button:hover {
+    background-color: #c74828; /* Darker red on hover */
+    transform: translateY(-3px); /* More pronounced lift on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Main Container and Product Styles */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* Individual Product (Dynamic) */
+.product {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.product::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background-color: #e55934; /* Accent color bar at top */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+#product-name {
+    font-size: 1.5rem;
+    color: #d18d4d; /* Muted orange for product names */
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+#product-price {
+    font-size: 1.3rem;
+    color: #8b4513; /* Saddle brown for prices */
+    font-weight: bold;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.button-container {
+    margin-top: auto;
+}
+
+#add-to-cart {
+    background-color: #f7b731; /* Bright warm yellow */
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#add-to-cart:hover {
+    background-color: #f4a200; /* Darker yellow on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#add-to-cart .material-symbols-outlined {
+    font-size: 1.5rem;
+}
+
+/* Material Symbols Adjustments */
+.material-symbols-outlined {
+    vertical-align: middle;
+}
+
+/* --- Theme Toggle Button Styling --- */
+.theme-toggle {
+    position: fixed; /* Use fixed for consistent positioning */
+    bottom: 2rem; /* Adjusted from 10% for more predictable placement */
+    right: 2rem; /* Initial position */
+    z-index: 1000; /* Ensure it's above other content but below the cart if open */
+    transition: all 0.3s ease; /* Ensure transition for smooth movement */
+}
+
+/* Nueva regla CSS: Cuando el cuerpo tiene la clase 'cart-open', mueve el botón de tema */
+body.cart-open .theme-toggle {
+    right: calc(350px + 2rem); /* Ancho del carrito + padding inicial desde la derecha */
+}
+
+#light {
+    background-color: #4a2a1a; /* Dark brown, contrasting with light theme */
+    color: #ffe7d4; /* Light text */
+    border: none;
+    padding: 0.7rem 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+#light:hover {
+    background-color: #2e1a0f; /* Darker brown on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
+}
+
+#light .material-symbols-outlined {
+    font-size: 1.8rem;
+}
+
+/* --- Dark Mode Styles --- */
+/* Add this class to your <body> element using JavaScript to activate dark mode */
+body.dark-mode {
+    background: linear-gradient(to right, #2a2a2a, #1a1a1a); /* Dark gradient background */
+    color: #e0e0e0; /* Light grey text */
+}
+
+body.dark-mode header {
+    background-color: #3a3a3a; /* Darker header */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode header h1 {
+    color: #f0f0f0;
+}
+
+body.dark-mode #shopping-bag {
+    background-color: #555; /* Darker tone for shopping bag */
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode #shopping-bag:hover {
+    background-color: #666;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .counter {
+    background-color: #880000; /* Dark red for counter */
+    color: #fff;
+    border: 2px solid #333;
+}
+
+body.dark-mode .cart {
+    background-color: #2c2c2c; /* Dark background for cart modal */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .total {
+    border-bottom: 1px dashed #555;
+    color: #ccc;
+}
+
+body.dark-mode .total h3 {
+    color: #ccc;
+}
+
+body.dark-mode .total h3 span {
+    color: #ff6b6b; /* Red accent for totals */
+}
+
+body.dark-mode .item {
+    background-color: #3c3c3c; /* Darker background for cart items */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .item-data h2 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .item-data span {
+    color: #ff6b6b;
+}
+
+body.dark-mode .item-counter p {
+    color: #999;
+}
+
+body.dark-mode .item-btn button {
+    background-color: #880000; /* Darker red remove button */
+}
+
+body.dark-mode .item-btn button:hover {
+    background-color: #a00000;
+}
+
+body.dark-mode .clear-items {
+    border-top: 1px dashed #555;
+}
+
+body.dark-mode #clear-cart {
+    background-color: #555; /* Darker clear cart button */
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode #clear-cart:hover {
+    background-color: #666;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Dark mode for the new buy button */
+body.dark-mode .buy-button-container {
+    border-top: 1px dashed #555;
+}
+
+body.dark-mode #buy-button {
+    background-color: #0088aa; /* A darker blue for the buy button in dark mode */
+    color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode #buy-button:hover {
+    background-color: #006688;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+
+body.dark-mode .product {
+    background-color: #3c3c3c; /* Dark background for products */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .product::before {
+    background-color: #ff6b6b; /* Red accent bar */
+}
+
+body.dark-mode .product:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode #product-name {
+    color: #f0f0f0;
+}
+
+body.dark-mode #product-price {
+    color: #ff6b6b;
+}
+
+body.dark-mode #add-to-cart {
+    background-color: #555; /* Darker add to cart button */
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode #add-to-cart:hover {
+    background-color: #666;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .theme-toggle #light {
+    background-color: #e0e0e0; /* Light background for the toggle button in dark mode */
+    color: #1a1a1a; /* Dark icon */
+    box-shadow: 0 3px 8px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .theme-toggle #light:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 5px 12px rgba(255, 255, 255, 0.3);
+}
+
+/* --- Cookie Banner Styles --- */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100dvw;
+    background-color: #d18d4d; /* Un naranja apagado, consistente con el header */
+    color: #fff;
+    padding: 1rem 2rem;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    z-index: 2000; /* Asegura que esté por encima de todo */
+    transform: translateY(100%); /* Oculto por defecto */
+    transition: transform 0.5s ease-out; /* Transición suave */
+}
+
+.cookie-banner.show {
+    transform: translateY(0); /* Muestra el banner */
+}
+
+.cookie-banner p {
+    margin: 0;
+    flex-basis: 70%; /* Ocupa la mayor parte del ancho */
+    padding-right: 1rem;
+    line-height: 1.5;
+}
+
+.cookie-buttons {
+    flex-basis: 20%; /* Ocupa el resto del ancho */
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+}
+
+.cookie-button {
+    background-color: #f7b731; /* Amarillo brillante para los botones */
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.cookie-button.accept {
+    background-color: #f7b731;
+}
+
+.cookie-button.accept:hover {
+    background-color: #f4a200;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.cookie-button.decline {
+    background-color: #e55934; /* Rojo para rechazar */
+}
+
+.cookie-button.decline:hover {
+    background-color: #c74828;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Dark Mode for Cookie Banner --- */
+body.dark-mode .cookie-banner {
+    background-color: #3a3a3a; /* Fondo más oscuro */
+    color: #e0e0e0;
+    box-shadow: 0 -4px 10px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .cookie-button {
+    background-color: #555;
+    color: #f0f0f0;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .cookie-button.accept {
+    background-color: #0088aa; /* Un azul oscuro para aceptar en dark mode */
+}
+
+body.dark-mode .cookie-button.accept:hover {
+    background-color: #006688;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .cookie-button.decline {
+    background-color: #880000; /* Rojo oscuro para rechazar en dark mode */
+}
+
+body.dark-mode .cookie-button.decline:hover {
+    background-color: #a00000;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Design (unchanged) */
+@media (max-width: 768px) {
+    .header-flex {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .bag-btn {
+        margin-top: 1rem;
+    }
+
+    .cart {
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .cookie-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+    .cookie-banner p {
+        flex-basis: 100%;
+        padding-right: 0;
+        margin-bottom: 1rem;
+    }
+    .cookie-buttons {
+        flex-basis: 100%;
+        justify-content: center;
+    }
+
+    /* Adjust new buy button for mobile */
+    #buy-button {
+        width: 100%; /* Full width on smaller screens */
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    #shopping-bag {
+        padding: 0.6rem 1rem;
+        font-size: 1.2rem;
+    }
+
+    #shopping-bag .material-symbols-outlined {
+        font-size: 1.8rem;
+    }
+
+    .counter {
+        width: 24px;
+        height: 24px;
+        font-size: 0.8rem;
+    }
+
+    .total h3 {
+        font-size: 1rem;
+    }
+
+    .item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .item-data, .item-counter, .item-btn {
+        width: 100%;
+        text-align: left;
+    }
+
+    .item-btn {
+        text-align: right;
+    }
+}
