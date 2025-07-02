@@ -18,6 +18,6 @@ You could find 2 directories: 'database' and 'public'.<br>
 
 ## Recomendations
 
-Install 'nodemon'.
+Install 'nodemon'.<br>
 Extension 'REST Client' helps to test request to the server
 
