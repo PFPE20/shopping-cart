@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # My first shopping cart.
 
 This is my first shopping cart made with JavaScrit and NODE.JS. <br>
@@ -19,7 +19,5 @@ You could find 2 directories: 'database' and 'public'.<br>
 ## Recomendations
 
 Install 'nodemon'.
-Extension 'REST Client' helps to test request to the server.
-=======
-# shopping-cart
->>>>>>> 17507fb0dbddfe8a85f569b20619951c47c0c1a0
+Extension 'REST Client' helps to test request to the server
+
